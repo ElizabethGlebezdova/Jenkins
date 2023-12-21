@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'maven-publish' // Add this line to apply the publishing plugin
 }
 
 repositories {
@@ -45,10 +46,6 @@ jacocoTestReport {
 
 javadoc {
     destinationDir = file("${buildDir}/docs/javadoc")
-}
-
-tasks.withType(Test) {
-    systemProperty "file.encoding", "UTF-8"
 }
 
 task createJar(type: Jar) {
